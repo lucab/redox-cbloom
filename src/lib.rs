@@ -6,8 +6,6 @@
 //! This implementation is fairly standard, except that it uses atomic integers to work
 //! concurrently.
 
-#![feature(integer_atomics)]
-
 use std::cmp;
 use std::sync::atomic::{self, AtomicU64};
 
