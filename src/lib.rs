@@ -6,6 +6,8 @@
 //! This implementation is fairly standard, except that it uses atomic integers to work
 //! concurrently.
 
+#![deny(missing_debug_implementations)]
+
 use std::cmp;
 use std::sync::atomic::{self, AtomicU64};
 
@@ -38,6 +40,7 @@ fn hash(mut x: u64) -> u64 {
 /// It works by having an array of bits. Every element is hashed into a sequence of these bits. The
 /// bits of the inserted elements are set to 1. When testing for membership, we simply AND the
 /// bits.
+#[derive(Debug)]
 pub struct Filter {
     /// The bit array.
     ///
